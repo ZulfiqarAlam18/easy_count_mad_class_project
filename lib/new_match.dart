@@ -1,109 +1,280 @@
-import 'dart:ui';
-
-import 'package:easy_count/first_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class NewMatch extends StatefulWidget{
+class NewMatch extends StatefulWidget {
   const NewMatch({super.key});
+
   @override
   AppState createState() => AppState();
 }
-class AppState extends State <NewMatch>{
-  Widget build(BuildContext context){
+
+class AppState extends State<NewMatch> {
+  // Variables to hold the selected radio button values
+  String? tossWinner = 'Team 1'; // Default selection for Toss Winner
+  String? choice = 'Bat'; // Default selection for batting/balling choice
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('New Match Screen'),
+        title: const Text('New Match Screen'),
       ),
       backgroundColor: Colors.teal[50],
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              SizedBox(width: double.infinity,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+      body: SingleChildScrollView( // Prevent overflow by making it scrollable
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start, // Align content to the left
+              children: [
+                // Team 1 Name Field
+                buildTextField('1st Team Name'),
+                const SizedBox(height: 10),
+
+                // Team 2 Name Field
+                buildTextField('2nd Team Name'),
+                const SizedBox(height: 10),
+
+                // Number of Players Field
+                buildTextField('Number of Players (1 to 12)'),
+                const SizedBox(height: 10),
+
+                // Number of Overs Field
+                buildTextField('Number of Overs'),
+                const SizedBox(height: 10),
+
+                // Toss Winner Radio Buttons
+                buildRadioButtonSection(
+                  title: 'Toss won by',
+                  options: ['Team 1', 'Team 2'],
+                  selectedValue: tossWinner,
+                  onChanged: (value) {
+                    setState(() {
+                      tossWinner = value;
+                    });
+                  },
                 ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    label: const Text('1st Team Name',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.teal),),
+                const SizedBox(height: 10),
 
+                // Opted For Bat/Ball Radio Buttons
+                buildRadioButtonSection(
+                  title: 'Opted for',
+                  options: ['Bat', 'Ball',],
+                  selectedValue: choice,
+                  onChanged: (value) {
+                    setState(() {
+                      choice = value;
+                    });
+                  },
+                ),
+                const SizedBox(height: 20),
+
+                // Start Match Button
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      showDialog(context: context, builder: (BuildContext context){
+                        return AlertDialog(
+                          title: const Text('Innings'),
+                          content: Container(
+                            height: 200,
+                            width: 200,
+                          // padding: EdgeInsets.all(16),
+                            child: Column(
+                              //mainAxisAlignment: MainAxisAlignment.center,
+                              //crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: BorderSide(
+                                        color: Colors.teal,
+                                        width: 2.0,
+                                      )
+                                    ),
+                                    label: const Text('Striker Name'),
+                                    labelStyle: TextStyle(
+                                      color: Colors.teal,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: BorderSide(
+                                        color: Colors.teal,
+                                        width: 2.0,
+                                      )
+                                    ),
+                                    contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+
+                                  ),
+
+
+                                ),
+                                SizedBox(height: 8,),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide(
+                                          color: Colors.teal,
+                                          width: 2.0,
+                                        )
+                                    ),
+                                    label: const Text('Non Striker Name'),
+                                    labelStyle: TextStyle(
+                                      color: Colors.teal,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide(
+                                          color: Colors.teal,
+                                          width: 2.0,
+                                        )
+                                    ),
+                                    contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+
+                                  ),
+
+
+                                ),
+                                SizedBox(height: 8,),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide(
+                                          color: Colors.teal,
+                                          width: 2.0,
+                                        )
+                                    ),
+                                    label: const Text('Bowler Name'),
+                                    labelStyle: TextStyle(
+                                      color: Colors.teal,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide(
+                                          color: Colors.teal,
+                                          width: 2.0,
+                                        )
+                                    ),
+                                    contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+
+                                  ),
+
+
+                                ),
+                                SizedBox(height: 8,),
+                              ],
+                            ),
+                          ),
+                          actions: [
+                              TextButton(onPressed: (){
+                                Navigator.of(context).pop();
+                              }, child: const Text('Go Back')),
+                              ElevatedButton(onPressed: (){}, child: const Text('Start Match')),
+                          ],
+                          backgroundColor: Colors.teal[50],
+                        );
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      backgroundColor: Colors.teal, // Background color teal
+                      foregroundColor: Colors.white, // Text color white
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12), // Rounded corners
+                      ),
+                    ),
+                    child: const Text(
+                      'Start Match',
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
-              ),),
-              SizedBox(height: 10,),
-              SizedBox(width: double.infinity,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      label: const Text('2nd Team Name',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.teal),),
-
-                    ),
-                  ),
-                ),),
-              SizedBox(height: 10,),
-              SizedBox(width: double.infinity,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      label: const Text('Number of Players(1 to 12)',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.teal),),
-
-                    ),
-                  ),
-                ),),
-              SizedBox(height: 10,),
-              SizedBox(width: double.infinity,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      label: const Text('Number of Overs',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.teal),),
-
-                    ),
-                  ),
-                ),),
-              SizedBox(height: 10,),
-              SizedBox(width: double.infinity,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      label: const Text('1st Team Name',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.teal),),
-
-                    ),
-                  ),
-                ),),
-              SizedBox(height: 10,),
-              SizedBox(width: double.infinity,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      label: const Text('1st Team Name',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.teal),),
-
-                    ),
-                  ),
-                ),),
-              SizedBox(height: 10,),
-              ElevatedButton(onPressed: (){}, child: const Text('Start Match')),
-            ],
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+
+  // Method to build text fields with teal border
+  Widget buildTextField(String labelText) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: labelText,
+          labelStyle: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.teal,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(
+              color: Colors.teal,
+              width: 2.0,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(
+              color: Colors.teal,
+              width: 2.0,
+            ),
+          ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        ),
+      ),
+    );
+  }
+
+  // Method to build radio button sections
+  Widget buildRadioButtonSection({
+    required String title,
+    required List<String> options,
+    required String? selectedValue,
+    required void Function(String?) onChanged,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.teal,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Column(
+          children: options.map((option) {
+            return RadioListTile<String>(
+              title: Text(
+                option,
+                style: const TextStyle(fontSize: 16),
+              ),
+              value: option,
+              groupValue: selectedValue,
+              activeColor: Colors.teal,
+              onChanged: onChanged,
+            );
+          }).toList(),
+        ),
+      ],
     );
   }
 }
