@@ -5,8 +5,7 @@ class ScoreboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Scoreboard: hhhkkj vs hhh'),
-        centerTitle: true,
+        title: const Text('Scoreboard: Team1 vs Team2'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -17,15 +16,19 @@ class ScoreboardScreen extends StatelessWidget {
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
+                side: BorderSide(
+                  color: Colors.teal,
+                  width: 4.0,
+                )
               ),
-              elevation: 4,
+              elevation: 16,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
                     Text(
-                      'hhhkkj, Inning1, (2 overs)',
-                      style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                      'Team1, Inning1, (2 overs)',
+                      style: TextStyle(fontSize: 18, color: Colors.black),
                     ),
                     SizedBox(height: 8),
                     Row(
@@ -34,13 +37,13 @@ class ScoreboardScreen extends StatelessWidget {
                         Text(
                           '0/0',
                           style: TextStyle(
-                            fontSize: 32,
+                            fontSize: 36,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
                           '(0.0)',
-                          style: TextStyle(fontSize: 32, color: Colors.grey[600]),
+                          style: TextStyle(fontSize: 36, color: Colors.grey[600]),
                         ),
                       ],
                     ),
@@ -63,12 +66,16 @@ class ScoreboardScreen extends StatelessWidget {
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
+                side: BorderSide(
+                  color: Colors.teal,
+                  width: 4.0,
+                )
               ),
-              elevation: 4,
+              elevation: 16,
               child: Column(
                 children: [
                   Table(
-                    border: TableBorder.all(color: Colors.grey),
+                    border: TableBorder.all(color: Colors.teal),
                     children: [
                       TableRow(
                         children: [
@@ -98,11 +105,41 @@ class ScoreboardScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      // First batsman row
                       TableRow(
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text('hhh*'),
+                            child: Text('Player1*'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('0'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('0'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('0'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('0'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('0.00'),
+                          ),
+                        ],
+                      ),
+                      // Second batsman row
+                      TableRow(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('Player2'),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -130,7 +167,7 @@ class ScoreboardScreen extends StatelessWidget {
                   ),
                   Divider(),
                   Table(
-                    border: TableBorder.all(color: Colors.grey),
+                    border: TableBorder.all(color: Colors.teal),
                     children: [
                       TableRow(
                         children: [
@@ -164,7 +201,7 @@ class ScoreboardScreen extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text('ijij'),
+                            child: Text('Bowler1'),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -194,26 +231,139 @@ class ScoreboardScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 8),
-
-            // Checkbox and Button Grid
-            Text('This over:'),
-            Wrap(
-              spacing: 10.0,
-              children: [
-                CheckboxWidget(label: 'Wicket'),
-                CheckboxWidget(label: 'Wide'),
-                CheckboxWidget(label: 'No Ball'),
-                CheckboxWidget(label: 'Byes'),
-                CheckboxWidget(label: 'Leg Byes'),
-              ],
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+                side: BorderSide(
+                  color: Colors.teal,
+                  width: 4.0,
+                ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    Text('This Over : ',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                    Text('0 0 0 0 0 0 0',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+              ),
             ),
-            SizedBox(height: 8),
-            // Number Pad for scoring
+
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                side: BorderSide(
+                  color: Colors.teal,
+                  width: 4.0,
+                )
+              ),
+              elevation: 8,
+              child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                      // Define a uniform button size
+                     // const Size buttonSize = Size(70, 50); // Adjust as needed
+
+                  ElevatedButton(
+                  onPressed: () {},
+              child: const Text('Wicket'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(8),
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                minimumSize: Size(70, 50),
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('No Ball'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(8),
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                minimumSize: Size(70, 50),
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Wide'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(8),
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                minimumSize: Size(70, 50),
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Byes'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(8),
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                minimumSize: Size(70, 50),
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Leg Byes'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(8),
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                minimumSize: Size(70, 50),
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+
+
+
+
+    SizedBox(height: 8),
+
+            // Score Buttons Grid
             GridView.count(
               crossAxisCount: 4,
               shrinkWrap: true,
               crossAxisSpacing: 8.0,
               mainAxisSpacing: 8.0,
+              childAspectRatio: 2,  // Adjusted height of buttons
               children: [
                 ScoreButton(label: '0'),
                 ScoreButton(label: '1'),
@@ -226,14 +376,28 @@ class ScoreboardScreen extends StatelessWidget {
               ],
             ),
             SizedBox(height: 8),
-            // Bottom buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                BottomButton(label: 'OVERS'),
-                BottomButton(label: 'BATSMAN'),
-                BottomButton(label: 'BOWLER'),
-              ],
+
+            // Batsman, Bowler, Overs buttons
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                side: BorderSide(
+                  color: Colors.teal,
+                  width: 4.0,
+                )
+              ),
+              elevation: 8,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    BottomButton(label: 'Batsman'),
+                    BottomButton(label: 'Bowler'),
+                    BottomButton(label: 'Overs'),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -242,19 +406,21 @@ class ScoreboardScreen extends StatelessWidget {
   }
 }
 
-class CheckboxWidget extends StatelessWidget {
+class ActionButton extends StatelessWidget {
   final String label;
+  final Color color;
 
-  CheckboxWidget({required this.label});
+  ActionButton({required this.label, required this.color});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Checkbox(value: false, onChanged: (bool? value) {}),
-        Text(label),
-      ],
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        minimumSize: Size(70, 50), // Adjusted height for better look
+      ),
+      onPressed: () {},
+      child: Text(label),
     );
   }
 }
@@ -267,6 +433,9 @@ class ScoreButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        minimumSize: Size(70, 50), // Adjusted height for better look
+      ),
       onPressed: () {},
       child: Text(label),
     );
@@ -282,7 +451,7 @@ class BottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.green, // Green color as shown in the image
+        minimumSize: Size(100, 50), // Adjusted height for better look
       ),
       onPressed: () {},
       child: Text(label),
