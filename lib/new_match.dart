@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'first_screen.dart';
 
 class NewMatch extends StatefulWidget {
   const NewMatch({super.key});
@@ -74,116 +74,8 @@ class AppState extends State<NewMatch> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      showDialog(context: context, builder: (BuildContext context){
-                        return AlertDialog(
-                          title: const Text('Innings'),
-                          content: Container(
-                            height: 200,
-                            width: 200,
-                          // padding: EdgeInsets.all(16),
-                            child: Column(
-                              //mainAxisAlignment: MainAxisAlignment.center,
-                              //crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                      borderSide: BorderSide(
-                                        color: Colors.teal,
-                                        width: 2.0,
-                                      )
-                                    ),
-                                    label: const Text('Striker Name'),
-                                    labelStyle: TextStyle(
-                                      color: Colors.teal,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                      borderSide: BorderSide(
-                                        color: Colors.teal,
-                                        width: 2.0,
-                                      )
-                                    ),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                      myAlertDB_with_textFields(context,'1st Innings');
 
-                                  ),
-
-
-                                ),
-                                SizedBox(height: 8,),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                        borderSide: BorderSide(
-                                          color: Colors.teal,
-                                          width: 2.0,
-                                        )
-                                    ),
-                                    label: const Text('Non Striker Name'),
-                                    labelStyle: TextStyle(
-                                      color: Colors.teal,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                        borderSide: BorderSide(
-                                          color: Colors.teal,
-                                          width: 2.0,
-                                        )
-                                    ),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
-
-                                  ),
-
-
-                                ),
-                                SizedBox(height: 8,),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                        borderSide: BorderSide(
-                                          color: Colors.teal,
-                                          width: 2.0,
-                                        )
-                                    ),
-                                    label: const Text('Bowler Name'),
-                                    labelStyle: TextStyle(
-                                      color: Colors.teal,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                        borderSide: BorderSide(
-                                          color: Colors.teal,
-                                          width: 2.0,
-                                        )
-                                    ),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
-
-                                  ),
-
-
-                                ),
-                                SizedBox(height: 8,),
-                              ],
-                            ),
-                          ),
-                          actions: [
-                              TextButton(onPressed: (){
-                                Navigator.of(context).pop();
-                              }, child: const Text('Go Back')),
-                              ElevatedButton(onPressed: (){}, child: const Text('Start Match')),
-                          ],
-                          backgroundColor: Colors.teal[50],
-                        );
-                      });
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 15),
