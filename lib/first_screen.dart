@@ -7,6 +7,11 @@ class FirstScreen extends StatefulWidget {
 }
 
 class AppState extends State<FirstScreen> {
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +64,9 @@ class AppState extends State<FirstScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/scorecard');
+                    },
                     icon: const Icon(Icons.play_arrow),
                     label: const Text(
                       'Resume Match',
@@ -87,7 +94,9 @@ class AppState extends State<FirstScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/history');
+                    },
                     icon: const Icon(Icons.history),
                     label: const Text(
                       'History',
@@ -115,7 +124,9 @@ class AppState extends State<FirstScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/stats');
+                    },
                     icon: const Icon(Icons.bar_chart),
                     label: const Text(
                       'Stats',
@@ -179,14 +190,14 @@ class AppState extends State<FirstScreen> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.contact_mail, color: Colors.teal),
+              leading: const Icon(Icons.phone, color: Colors.teal),
               title: const Text('Contact Us'),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: const Icon(Icons.person, color: Colors.teal),
+              leading: const Icon(Icons.info, color: Colors.teal),
               title: const Text('About Us'),
               onTap: () {
                 Navigator.pop(context);
@@ -218,4 +229,166 @@ class AppState extends State<FirstScreen> {
       ),
     );
   }
+}
+
+void myAlertDB_with_textFields(BuildContext context,String title){
+  showDialog(context: context, builder: (BuildContext context){
+    return AlertDialog(
+      title:  Text(title),
+
+      content: Container(
+        height: 250,
+        width: 200,
+        // padding: EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.center,
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                        width: 2.0,
+                      )
+                  ),
+                  label: const Text('Captain'),
+                  labelStyle: TextStyle(
+                    color: Colors.teal,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                        width: 2.0,
+                      )
+                  ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+
+                ),
+
+
+              ),
+              SizedBox(height: 8,),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                        width: 2.0,
+                      )
+                  ),
+                  label: const Text('Striker Name'),
+                  labelStyle: TextStyle(
+                    color: Colors.teal,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                        width: 2.0,
+                      )
+                  ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+
+                ),
+
+
+              ),
+              SizedBox(height: 8,),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                        width: 2.0,
+                      )
+                  ),
+                  label: const Text('Non Striker Name'),
+                  labelStyle: TextStyle(
+                    color: Colors.teal,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                        width: 2.0,
+                      )
+                  ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+
+                ),
+
+
+              ),
+              SizedBox(height: 8,),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                        width: 2.0,
+                      )
+                  ),
+                  label: const Text('Bowler Name'),
+                  labelStyle: TextStyle(
+                    color: Colors.teal,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                        width: 2.0,
+                      )
+                  ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+
+                ),
+
+
+              ),
+              SizedBox(height: 8,),
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(onPressed: (){
+          Navigator.of(context).pop();
+        }, child: const Text('Go Back')),
+        ElevatedButton(onPressed: (){
+          Navigator.pushNamed(context, '/scorecard');
+        }, child: const Text('Start Match')),
+      ],
+      backgroundColor: Colors.teal[50],
+    );
+  });
+}
+
+void myAlerDB_without_textFields(BuildContext context, String content, String title){
+  showDialog(context: context, builder: (BuildContext context){
+    return AlertDialog(
+      title: Text(title),
+      content: Text(content),
+      actions: [
+        TextButton(onPressed: (){
+          Navigator.of(context).pop();
+        }, child: Text('Close')),
+        ElevatedButton(onPressed: (){}, child: Text('Go AHead')),
+      ],
+    );
+  });
 }
