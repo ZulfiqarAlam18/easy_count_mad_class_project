@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     // Splash screen timer (2 seconds)
     Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, '/f_screen'); // Replace with your app's home screen
+      Navigator.pushReplacementNamed(context, '/home'); // Replace with your app's home screen
     });
   }
 

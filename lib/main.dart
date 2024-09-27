@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'homeScreen.dart';
 import 'demo.dart';
 import 'history.dart';
+import 'homeScreen.dart';
 
 void main(){
   runApp(const EasyCount());
