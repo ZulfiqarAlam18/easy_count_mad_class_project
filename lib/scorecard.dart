@@ -62,7 +62,6 @@ class ScoreboardScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 4),
-        
               // Batsman and Bowler table
               Card(
                 shape: RoundedRectangleBorder(
@@ -232,6 +231,8 @@ class ScoreboardScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 4),
+
+              //current over update card
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -250,7 +251,8 @@ class ScoreboardScreen extends StatelessWidget {
                   ),
                 ),
               ),
-        
+
+              // wicket, wide, byes, no ball legbyes buttons
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -269,7 +271,59 @@ class ScoreboardScreen extends StatelessWidget {
                        // const Size buttonSize = Size(70, 50); // Adjust as needed
         
                     ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                     showDialog(context: context, builder: (BuildContext context){
+                       return AlertDialog(
+                         backgroundColor: Colors.teal[50],
+                         title: const Text('Select Wicket Type'),
+                         content: Padding(
+                           padding: EdgeInsets.all(8.0),
+                           child: Container(
+                             height: 300,
+                             width:   200,
+                             child: Padding(
+                               padding: EdgeInsets.all(8.0),
+                             child: SingleChildScrollView(
+                               child: Column(
+                                 children: [
+                                   Card(
+                                     child: ElevatedButton(onPressed: (){},child: const Text('Clean Bowled'),style: ElevatedButton.styleFrom(
+                                       minimumSize: Size(150, 15),
+                                     ),),
+                                   ),
+                                   Card(
+                                     child: ElevatedButton(onPressed: (){},child: const Text('Catch Out'),style: ElevatedButton.styleFrom(
+                                       minimumSize: Size(150, 15),
+                                     ),),
+                                   ),
+                                   Card(
+                                     child: ElevatedButton(onPressed: (){},child: const Text('LBW'),style: ElevatedButton.styleFrom(
+                                       minimumSize: Size(150, 15),
+                                     ),),
+                                   ),
+                                   Card(
+                                     child: ElevatedButton(onPressed: (){},child: const Text('Run Out'),style: ElevatedButton.styleFrom(
+                                       minimumSize: Size(150, 15),
+                                     ),),
+                                   ),
+                                   Card(
+                                     child: ElevatedButton(onPressed: (){},child: const Text('Hit Wicket'),style: ElevatedButton.styleFrom(
+                                       minimumSize: Size(150, 15),
+                                     ),),
+                                   ),
+                                   Card(
+                                     child: ElevatedButton(onPressed: (){},child: const Text('Retire hurt'),style: ElevatedButton.styleFrom(
+                                       minimumSize: Size(150, 15),
+                                     ),),
+                                   ),
+                                 ],
+                               ),
+                             ),)
+                           ),
+                         ),
+                       );
+                     });
+                    },
                 child: const Text('Wicket'),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(8),
@@ -352,11 +406,7 @@ class ScoreboardScreen extends StatelessWidget {
           ),
         ),
             ),
-        
-        
-        
-        
-            SizedBox(height: 4),
+              SizedBox(height: 4),
         
               // Score Buttons Grid
               GridView.count(
@@ -378,7 +428,7 @@ class ScoreboardScreen extends StatelessWidget {
               ),
               SizedBox(height: 4),
         
-              // Batsman, Bowler, Overs buttons
+              // Live Match Summary
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -388,17 +438,28 @@ class ScoreboardScreen extends StatelessWidget {
                   )
                 ),
                 elevation: 8,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      BottomButton(label: 'Batsman'),
-                      BottomButton(label: 'Bowler'),
-                      BottomButton(label: 'Overs'),
-                    ],
+                child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/summaryScreen');
+
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        backgroundColor: Colors.teal, // Background color teal
+                        foregroundColor: Colors.white, // Text color white
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12), // Rounded corners
+                        ),
+                      ),
+                      child: const Text(
+                        'This Match Summary',
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
-                ),
+
               ),
             ],
           ),
