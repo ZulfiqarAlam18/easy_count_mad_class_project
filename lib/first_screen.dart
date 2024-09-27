@@ -65,7 +65,23 @@ class AppState extends State<FirstScreen> {
                   ),
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/scorecard');
+                      showDialog(context: context, builder: (BuildContext context){
+                        return AlertDialog(
+                          backgroundColor: Colors.teal[50],
+                          title: const Text('Wanna Resume Match?'),
+                          actions: [
+                            TextButton(onPressed: (){
+                              Navigator.of(context).pop();
+                            }, child: const Text('No')),
+                            ElevatedButton(onPressed: (){
+                              Navigator.pushNamed(context, '/scorecard');
+                            }, child: const Text('Yes')),
+                          ],
+                        );
+                      });
+
+
+
                     },
                     icon: const Icon(Icons.play_arrow),
                     label: const Text(

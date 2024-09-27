@@ -50,6 +50,9 @@ class AppState extends State <History>{
                );
              });
            },icon: Icon(Icons.delete),),
+           onTap: (){
+             Navigator.pushNamed(context, '/summaryScreen');
+           },
          ),
        );
      }),
