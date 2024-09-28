@@ -1,4 +1,3 @@
-import 'package:easy_count/first_screen.dart';
 import 'package:easy_count/new_match.dart';
 import 'package:easy_count/scorecard.dart';
 import 'package:easy_count/splashScreen.dart';
@@ -6,9 +5,8 @@ import 'package:easy_count/states.dart';
 import 'package:easy_count/summaryScreen.dart';
 import 'package:flutter/material.dart';
 import 'homeScreen.dart';
-import 'demo.dart';
 import 'history.dart';
-import 'homeScreen.dart';
+import 'demo.dart';
 
 void main(){
   runApp(const EasyCount());
@@ -27,7 +25,7 @@ class EasyCount extends StatelessWidget {
         primaryColor: Colors.teal, // don't know reason of using this line but appbar and major elements
         brightness: Brightness.light, //two options either dark or light(white)
         scaffoldBackgroundColor: Colors.teal[50], //scaffold color
-        fontFamily: 'Roboto', //defualt font family
+        fontFamily: 'Roboto', //default font family
 
           //App Bar structure
         appBarTheme: AppBarTheme(
@@ -111,13 +109,12 @@ class EasyCount extends StatelessWidget {
 
       routes: {
       //  '/': (context) => SplashScreen(),
-        '/f_screen': (context) => FirstScreen(),
-        '/home': (context) => HomeScreen(),
-        '/newMatch': (context) => NewMatch(),
-        '/history' : (context) => History(),
+        '/home': (context) =>const  HomeScreen(),
+        '/newMatch': (context) =>const NewMatch(),
+        '/history' : (context) => const History(),
         '/scorecard': (context) => ScoreboardScreen(),
-        '/stats': (context) => StatsScreen(),
-        '/summaryScreen': (context) => Summaryscreen(),
+        '/stats': (context) => const StatsScreen(),
+        '/summaryScreen': (context) => const  Summaryscreen(),
       },
 
       home: SplashScreen(),
