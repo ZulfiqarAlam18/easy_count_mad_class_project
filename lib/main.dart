@@ -1,3 +1,4 @@
+import 'package:easy_count/contactUs.dart';
 import 'package:easy_count/new_match.dart';
 import 'package:easy_count/scorecard.dart';
 import 'package:easy_count/splashScreen.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'homeScreen.dart';
 import 'history.dart';
 import 'demo.dart';
+import 'aboutUs.dart';
 
 void main(){
   runApp(const EasyCount());
@@ -115,6 +117,8 @@ class EasyCount extends StatelessWidget {
         '/scorecard': (context) => ScoreboardScreen(),
         '/stats': (context) => const StatsScreen(),
         '/summaryScreen': (context) => const  Summaryscreen(),
+        '/contactus': (context) => const ContactUsScreen(),
+        '/aboutus': (context) => const AboutUsScreen(),
       },
 
       home: SplashScreen(),

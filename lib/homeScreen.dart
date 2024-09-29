@@ -209,14 +209,14 @@ class AppState extends State<HomeScreen> {
               leading: const Icon(Icons.phone, color: Colors.teal),
               title: const Text('Contact Us'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, '/contactus');
               },
             ),
             ListTile(
               leading: const Icon(Icons.info, color: Colors.teal),
               title: const Text('About Us'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, '/aboutus');
               },
             ),
             ListTile(
