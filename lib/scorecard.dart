@@ -279,7 +279,7 @@ class ScoreboardScreen extends StatelessWidget {
                          content: Padding(
                            padding: EdgeInsets.all(8.0),
                            child: Container(
-                             height: 300,
+                             height: 400,
                              width:   200,
                              child: Padding(
                                padding: EdgeInsets.all(8.0),
@@ -293,6 +293,11 @@ class ScoreboardScreen extends StatelessWidget {
                                    ),
                                    Card(
                                      child: ElevatedButton(onPressed: (){},child: const Text('Catch Out'),style: ElevatedButton.styleFrom(
+                                       minimumSize: Size(150, 15),
+                                     ),),
+                                   ),
+                                   Card(
+                                     child: ElevatedButton(onPressed: (){},child: const Text('Stump Out'),style: ElevatedButton.styleFrom(
                                        minimumSize: Size(150, 15),
                                      ),),
                                    ),

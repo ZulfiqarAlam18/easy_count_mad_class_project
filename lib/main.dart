@@ -121,7 +121,7 @@ class EasyCount extends StatelessWidget {
         '/aboutus': (context) => const AboutUsScreen(),
       },
 
-      home: SplashScreen(),
+      home: SplashScreen (),
 
     );
 
