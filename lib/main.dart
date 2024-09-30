@@ -10,6 +10,9 @@ import 'demo.dart';
 import 'drawerScreens/aboutUsScreen.dart';
 import 'package:easy_count/drawerScreens/ContactUsScreen.dart';
 import 'package:easy_count/drawerScreens/terms_and_conditons_Screen.dart';
+import 'package:easy_count/home_screens/history.dart';
+import 'package:easy_count/home_screens/new_match.dart';
+import 'package:easy_count/home_screens/stats.dart';
 
 void main(){
   runApp(const EasyCount());
