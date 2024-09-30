@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:easy_count/homeScreen.dart';
+import 'package:easy_count/home_screens/home_screen.dart';
 class NewMatch extends StatefulWidget {
   const NewMatch({super.key});
 
