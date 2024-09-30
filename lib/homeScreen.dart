@@ -223,7 +223,7 @@ class AppState extends State<HomeScreen> {
               leading: const Icon(Icons.privacy_tip, color: Colors.teal),
               title: const Text('Terms & Conditions'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, '/terms');
               },
             ),
             ListTile(
