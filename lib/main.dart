@@ -1,6 +1,5 @@
-import 'package:easy_count/scorecard.dart';
 import 'package:easy_count/splashScreen.dart';
-import 'package:easy_count/summaryScreen.dart';
+import 'package:easy_count/stats_screens/bowler_stats.dart';
 import 'package:flutter/material.dart';
 import 'demo.dart';
 import 'drawerScreens/aboutUsScreen.dart';
@@ -10,6 +9,10 @@ import 'package:easy_count/home_screens/history.dart';
 import 'package:easy_count/home_screens/new_match.dart';
 import 'package:easy_count/home_screens/stats.dart';
 import 'package:easy_count/home_screens/home_screen.dart';
+import 'package:easy_count/new_match_screens/scorecard.dart';
+import 'package:easy_count/new_match_screens/firstInnings.dart';
+import 'new_match_screens/secondInnings.dart';
+import 'new_match_screens/summaryScreen.dart';
 
 void main(){
   runApp(const EasyCount());

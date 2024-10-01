@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -407,4 +408,36 @@ void myAlerDB_without_textFields(BuildContext context, String content, String ti
       ],
     );
   });
+}
+
+Widget showDataList({required String title ,String? des , required int length}){
+  return Padding(
+    padding:const EdgeInsets.all(4.0),
+    child: ListView.builder(itemCount: length,
+        itemBuilder: (context, index){
+          return Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(
+                color: Colors.teal,
+                width: 2.0,
+              )
+            ),
+            elevation: 16,
+            child: ListTile(
+              title:  Text(title),
+           //   titleTextStyle: TextStyle(fontWeight: FontWeight.bold),
+              subtitle: des != null && des.isNotEmpty
+                        ? Text(des): null,
+              leading: CircleAvatar(
+                radius: 20,
+                child: Text((index+1).toString()),
+              ),
+              trailing: IconButton(onPressed: (){
+
+              },icon: Icon(Icons.delete),),
+            ),
+          );
+        }),
+  );
 }

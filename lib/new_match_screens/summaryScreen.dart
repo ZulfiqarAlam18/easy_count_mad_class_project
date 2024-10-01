@@ -1,7 +1,7 @@
 import 'package:easy_count/demo.dart';
-import 'package:easy_count/firstInnings.dart';
 import 'package:flutter/material.dart';
 import 'secondInnings.dart';
+import 'package:easy_count/new_match_screens/firstInnings.dart';
 
 class Summaryscreen extends StatefulWidget{
   const Summaryscreen({super.key});
