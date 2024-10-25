@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -170,13 +171,13 @@ class AppState extends State<HomeScreen> {
           padding: EdgeInsets.zero,
           children: [
             // Drawer Header with App Info
-            DrawerHeader(
-              decoration: const BoxDecoration(
+            const DrawerHeader(
+              decoration: BoxDecoration(
                 color: Colors.teal,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Icon(
                     Icons.sports_cricket,
                     color: Colors.white,
@@ -249,6 +250,11 @@ class AppState extends State<HomeScreen> {
 }
 
 void myAlertDB_with_textFields(BuildContext context,String title){
+  TextEditingController captain_Controller = TextEditingController();
+  TextEditingController striker = TextEditingController();
+  TextEditingController nonStricker = TextEditingController();
+  TextEditingController bowler = TextEditingController();
+
   showDialog(context: context, builder: (BuildContext context){
     return AlertDialog(
       title:  Text(title),
@@ -263,121 +269,125 @@ void myAlertDB_with_textFields(BuildContext context,String title){
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextField(
+                controller: captain_Controller,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.teal,
                         width: 2.0,
                       )
                   ),
                   label: const Text('Captain'),
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                     color: Colors.teal,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.teal,
                         width: 2.0,
                       )
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
 
                 ),
 
 
               ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               TextField(
+                controller: striker,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.teal,
                         width: 2.0,
                       )
                   ),
                   label: const Text('Striker Name'),
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                     color: Colors.teal,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.teal,
                         width: 2.0,
                       )
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
 
                 ),
 
 
               ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               TextField(
+                controller: nonStricker,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.teal,
                         width: 2.0,
                       )
                   ),
                   label: const Text('Non Striker Name'),
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                     color: Colors.teal,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.teal,
                         width: 2.0,
                       )
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
 
                 ),
 
 
               ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               TextField(
+                controller: bowler,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.teal,
                         width: 2.0,
                       )
                   ),
                   label: const Text('Bowler Name'),
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                     color: Colors.teal,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.teal,
                         width: 2.0,
                       )
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
 
                 ),
 
 
               ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
             ],
           ),
         ),
@@ -403,8 +413,8 @@ void myAlerDB_without_textFields(BuildContext context, String content, String ti
       actions: [
         TextButton(onPressed: (){
           Navigator.of(context).pop();
-        }, child: Text('Close')),
-        ElevatedButton(onPressed: (){}, child: Text('Go AHead')),
+        }, child: const Text('Close')),
+        ElevatedButton(onPressed: (){}, child: const Text('Go AHead')),
       ],
     );
   });
@@ -418,7 +428,7 @@ Widget showDataList({required String title ,String? des , required int length}){
           return Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
-              side: BorderSide(
+              side: const BorderSide(
                 color: Colors.teal,
                 width: 2.0,
               )
@@ -435,7 +445,7 @@ Widget showDataList({required String title ,String? des , required int length}){
               ),
               trailing: IconButton(onPressed: (){
 
-              },icon: Icon(Icons.delete),),
+              },icon: const Icon(Icons.delete),),
             ),
           );
         }),
