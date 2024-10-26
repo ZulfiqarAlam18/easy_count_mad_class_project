@@ -1,8 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:easy_count/home_screens/home_screen.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+
 class NewMatch extends StatefulWidget {
   const NewMatch({super.key});
 
@@ -26,27 +24,30 @@ class AppState extends State<NewMatch> {
         title: const Text('New Match Screen'),
       ),
       backgroundColor: Colors.teal[50],
-      body: SingleChildScrollView( // Prevent overflow by making it scrollable
+      body: SingleChildScrollView(
+        // Prevent overflow by making it scrollable
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // Align content to the left
+              crossAxisAlignment:
+                  CrossAxisAlignment.start, // Align content to the left
               children: [
                 // Team 1 Name Field
-                buildTextField('1st Team Name',team_1_Controller),
+                buildTextField('1st Team Name', team_1_Controller),
                 const SizedBox(height: 10),
 
                 // Team 2 Name Field
-                buildTextField('2nd Team Name',team_2_Controller),
+                buildTextField('2nd Team Name', team_2_Controller),
                 const SizedBox(height: 10),
 
                 // Number of Players Field
-                buildTextField('Number of Players (1 to 12)',players_controller),
+                buildTextField(
+                    'Number of Players (1 to 12)', players_controller),
                 const SizedBox(height: 10),
 
                 // Number of Overs Field
-                buildTextField('Number of Overs',overs_controller),
+                buildTextField('Number of Overs', overs_controller),
                 const SizedBox(height: 10),
 
                 // Toss Winner Radio Buttons
@@ -55,9 +56,9 @@ class AppState extends State<NewMatch> {
                   options: ['Team 1', 'Team 2'],
                   selectedValue: tossWinner,
                   onChanged: (value) {
-                    if(value!.contains('1')){
+                    if (value!.contains('1')) {
                       tossWinner = team_1_Controller.text.toString();
-                    }else{
+                    } else {
                       tossWinner = team_2_Controller.text.toString();
                     }
                   },
@@ -67,7 +68,10 @@ class AppState extends State<NewMatch> {
                 // Opted For Bat/Ball Radio Buttons
                 buildRadioButtonSection(
                   title: 'Opted for',
-                  options: ['Bat', 'Ball',],
+                  options: [
+                    'Bat',
+                    'Ball',
+                  ],
                   selectedValue: choice,
                   onChanged: (value) {
                     setState(() {
@@ -82,21 +86,21 @@ class AppState extends State<NewMatch> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-
-                      myAlertDB_with_textFields(context,'1st Innings');
-
+                      myAlertDB_with_textFields(context, '1st Innings');
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       backgroundColor: Colors.teal, // Background color teal
                       foregroundColor: Colors.white, // Text color white
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12), // Rounded corners
+                        borderRadius:
+                            BorderRadius.circular(12), // Rounded corners
                       ),
                     ),
                     child: const Text(
                       'Start Match',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -109,7 +113,7 @@ class AppState extends State<NewMatch> {
   }
 
   // Method to build text fields with teal border
-  Widget buildTextField(String labelText , TextEditingController controller) {
+  Widget buildTextField(String labelText, TextEditingController controller) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -137,7 +141,8 @@ class AppState extends State<NewMatch> {
               width: 2.0,
             ),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         ),
       ),
     );

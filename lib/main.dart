@@ -1,8 +1,5 @@
 import 'package:easy_count/splashScreen.dart';
-import 'package:easy_count/stats_screens/bowler_stats.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'demo.dart';
 import 'drawerScreens/aboutUsScreen.dart';
 import 'package:easy_count/drawerScreens/ContactUsScreen.dart';
 import 'package:easy_count/drawerScreens/terms_and_conditons_Screen.dart';
@@ -11,8 +8,6 @@ import 'package:easy_count/home_screens/new_match.dart';
 import 'package:easy_count/home_screens/stats.dart';
 import 'package:easy_count/home_screens/home_screen.dart';
 import 'package:easy_count/new_match_screens/scorecard.dart';
-import 'package:easy_count/new_match_screens/firstInnings.dart';
-import 'new_match_screens/secondInnings.dart';
 import 'new_match_screens/summaryScreen.dart';
 
 void main()  {
@@ -36,7 +31,7 @@ class EasyCount extends StatelessWidget {
           fontFamily: 'Roboto', //default font family
 
           //App Bar structure
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
             backgroundColor: Colors.teal,
             foregroundColor: Colors.white, //for icons and text
             elevation: 0, //no idea of using this line
@@ -48,8 +43,8 @@ class EasyCount extends StatelessWidget {
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.teal,
                 foregroundColor: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                textStyle: TextStyle(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                textStyle: const TextStyle(
                     //  fontWeight: FontWeight.w500,
                     //  fontSize: 18,
 
@@ -61,16 +56,16 @@ class EasyCount extends StatelessWidget {
               filled: true,
               fillColor: Colors.white,
               contentPadding:
-                  EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.0),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.teal,
                   width: 2.0,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.teal,
                   width: 2.0,
                 ),
@@ -78,17 +73,17 @@ class EasyCount extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.0),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: Colors.teal,
                     width: 2.0,
                   )),
-              labelStyle: TextStyle(
+              labelStyle: const TextStyle(
                 color: Colors.teal,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               )),
           //text themes
-          textTheme: TextTheme(
+          textTheme: const TextTheme(
             headlineLarge: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 24, color: Colors.teal),
             headlineMedium: TextStyle(
@@ -98,7 +93,7 @@ class EasyCount extends StatelessWidget {
           ),
 
           //for icons
-          iconTheme: IconThemeData(
+          iconTheme: const IconThemeData(
             color: Colors.teal,
             size: 24,
           )),

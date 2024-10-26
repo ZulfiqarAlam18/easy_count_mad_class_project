@@ -1,4 +1,4 @@
-import 'package:easy_count/demo.dart';
+
 import 'package:flutter/material.dart';
 import 'package:easy_count/home_screens/home_screen.dart';
 
@@ -25,7 +25,7 @@ class AppState extends State <BowlerStats>{
               width: 350,
               child: TextField(
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search, color: Colors.teal),
+                  prefixIcon: const Icon(Icons.search, color: Colors.teal),
                   hintText: 'Search by name',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),

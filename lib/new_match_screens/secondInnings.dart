@@ -1,4 +1,3 @@
-import 'package:easy_count/demo.dart';
 import 'package:flutter/material.dart';
 
 class SecondInnings extends StatefulWidget {
@@ -14,7 +13,7 @@ class AppState extends State<SecondInnings> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -22,7 +21,7 @@ class AppState extends State<SecondInnings> {
               Card(
                 child: Column(
                   children: [
-                    Card(
+                    const Card(
                       color: Colors.teal,
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
@@ -58,10 +57,10 @@ class AppState extends State<SecondInnings> {
                           shrinkWrap: true,
                           itemCount: 10,
                           itemBuilder: (context, index) {
-                            return Card(
+                            return const Card(
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text('1'),
                                   Text('Batsman'),
@@ -88,10 +87,10 @@ class AppState extends State<SecondInnings> {
                       color: Colors.teal,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
-                          side: BorderSide(
+                          side: const BorderSide(
                             color: Colors.teal,
                           )),
-                      child: Padding(
+                      child: const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -119,10 +118,10 @@ class AppState extends State<SecondInnings> {
                           shrinkWrap: true,
                           itemCount: 5,
                           itemBuilder: (context, index) {
-                            return Card(
+                            return const Card(
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text('Batsman'),
                                   Text('R'),
@@ -144,7 +143,7 @@ class AppState extends State<SecondInnings> {
               Card(
                 child: Column(
                   children: [
-                    Card(
+                    const Card(
                       color: Colors.teal,
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
@@ -167,10 +166,10 @@ class AppState extends State<SecondInnings> {
                           shrinkWrap: true,
                           itemCount: 20,
                           itemBuilder: (context, index) {
-                            return Card(
+                            return const Card(
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text('Batsman'),
                                   Text('R'),
